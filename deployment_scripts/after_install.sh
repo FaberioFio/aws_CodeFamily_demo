@@ -1,3 +1,2 @@
 #!/bin/bash
-cd /home/ubuntu/app
-npm install
+echo "After install step - nothing for now"
