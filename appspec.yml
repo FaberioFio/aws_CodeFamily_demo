@@ -1,15 +1,13 @@
-version: 0.0
-os: linux
-files:
-  - source: /
-    destination: /home/ubuntu/app
 hooks:
   ApplicationStop:
     - location: deployment_scripts/stop_server.sh
       timeout: 300
       runas: root
-      
+
   BeforeInstall:
+    - location: deployment_scripts/set_permissions.sh
+      timeout: 300
+      runas: root
     - location: deployment_scripts/before_install.sh
       timeout: 300
       runas: root
@@ -28,4 +26,3 @@ hooks:
     - location: deployment_scripts/validate_service.sh
       timeout: 300
       runas: root
-  
